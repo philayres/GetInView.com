@@ -1,0 +1,90 @@
+
+
+<h1>Found <%= @properties.length %> <%=  "Accommodations".pluralize @properties.length %>
+<% if @city %>
+<br /><small>In
+<%= @city.name %>, <%= @city.state.name %></small>
+<% end %>
+</h1>
+
+<div class="properties-index">
+<%= render partial: "properties/search_form" %>
+ 
+<% if @city %>
+<div class="card card-block">
+<p>Read about <%= link_to "where to stay in #{@city.name}", CityInfo.url_for(@city) %></p>
+<p>Browse <%= link_to "other cities in #{@city.state.name}", @city.state %></p>
+<p>Browse <%= link_to "other regions in #{@city.state.country.full_name}", @city.state.country %></p>
+</div>
+<% end %>
+</div>
+
+<%= render partial: "layouts/adsense_responsive", locals: {ad_slot: :on_page} %>
+
+<ul class="list-group properties-index-list">
+      
+    <% @properties.each do |property| %>
+    
+    
+    <li class="list-group-item ">
+      <a href="<%= property_path(property) %>" class="list-group-item-action">
+        <div class="result-linked-data">
+        
+          <h5 class="list-group-item-heading"><%= property.name %> <small class="property-type badge badge-default tag-pill float-right"><%= property_type_display property.property_type %></small></h5>
+        <%
+        rating = nil
+        if property.google_place
+          google_place = property.google_place.result 
+          rating = google_place.rating if google_place
+        end
+        %>  
+        <div class="rating text-center">
+          <% if rating %>
+          <span class="badge badge-primary">
+          <span class="rating-number"><%= rating %></span><span class="rating-of5"> / 5</span>
+          </span>
+          <% else %>
+          <span class="badge badge-primary rating-unavailable">no rating yet</span>
+          <% end %>
+        </div>
+          
+          
+          <% if property.property_address %>
+          <div>
+          <div class="indexaddress">
+          <%= property.property_address.address1 %>, 
+          <% unless property.property_address.address2.blank? %>
+          <%= property.property_address.address2 %>, 
+          <% end %>
+          <%= property.property_address.city %>, <%= property.property_address.state %>, <%= country_full_name(property.property_address.country) %>
+          </div>
+          </div>
+          <% else %>
+          <p>(no address found)</p>
+          <% end %>
+        
+        </div>
+        <% if property.property_address %> 
+          <% if property.property_address.valid_gps? %>
+            <div class="staticmap">
+            
+              <%= map_img_tag property.property_address.latitude, property.property_address.longitude, 600, 120, zoom: 14, nolink: true %>
+            </div>
+          <% else %>
+          <div class="staticmap">
+          
+            <%= map_address_img_tag property.property_address.as_single_line,
+            600, 120, zoom: 14, nolink: true %>
+            </div>
+          <% end %>
+        <% end %>      
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+<br>
+
+<p>
+<%= link_to "return home", "/" %>
+</p>

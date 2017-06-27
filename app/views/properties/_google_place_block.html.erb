@@ -1,0 +1,29 @@
+
+<% if @google_place %>
+<div class="card card-block ratings-block"> 
+  <h3>Rating</h3>
+  
+  <p class="rating">
+    <% if @google_place.rating %>
+    <span class="badge badge-primary">
+    <span class="rating-number"><%= @google_place.rating %></span><span class="rating-of5"> / 5</span>
+    </span>
+    <% else %>
+    <span class="badge badge-primary rating-unavailable">no rating yet</span>
+    <% end %>
+  </p>
+</div>
+<div class="card card-block reviews-block"> 
+  <h3>Reviews</h3>
+  
+  <div class="reviews">
+    <% if @google_place.reviews && @google_place.reviews.length > 0 %>
+    <%= render partial: "google_place_reviews" %>
+    <% else %>
+    <p class="rating-unavailable">no reviews yet</p>
+    <% end %>
+  </div>
+  
+  <p class="google-places-link"><%= link_to "see more reviews on Google Places", @google_place.url, target: "googleplace" %></p>
+</div>
+<% end %>

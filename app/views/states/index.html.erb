@@ -1,0 +1,29 @@
+
+
+<h1>States, Provinces or Counties</h1>
+<h2><%= @country.full_name if @country%>
+</h2>
+<p>Accommodation listings are available in <%= @country.full_name if @country%>.</p>
+<%= render partial:"countries/browse_details" %>
+<ul class="list-group">
+      
+    <% @states.each do |state| %>
+    
+    
+    <li class="list-group-item ">
+    
+    <a href="<%= state_path(state) %>" class="list-group-item-action">
+          <h5 class="list-group-item-heading">
+          <%= state.name %> <small><%= state.country.full_name %></small></h5>
+          
+
+
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+<br>
+
+
+

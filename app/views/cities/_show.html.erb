@@ -1,0 +1,18 @@
+<h1><%= @city.name %> <br><small> <%= @city.state.name %>, <%= @city.state.country.name %></small></h1>
+
+<p>Properties found in this city</p>
+<ul class="list-group">
+      
+    <% @properties.each do |property| %>
+    
+    
+    <li class="list-group-item ">
+    
+    <a href="<%= property_path(property) %>" class="list-group-item-action">
+          <p class="list-group-item-heading"><%= property.name %></p>
+       
+
+        </a>
+      </li>
+    <% end %>
+  </ul>

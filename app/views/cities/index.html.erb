@@ -1,0 +1,25 @@
+
+
+<h1>Cities or Towns</h1>
+<h2><%= @state.name if @state %> <small><%= @country.full_name if @country%></small></h2>
+<p>Accommodation options are available in <%= @state.name if @state %>, <%= @country.full_name if @country%>.
+<%= render partial:"countries/browse_details" %>
+<p>GetInView has properties listed in the following cities</p>
+
+<ul class="list-group">
+      
+    <% @cities.each do |city| %>
+    
+    
+    <li class="list-group-item ">
+    
+    <a href="<%= city_path(city) %>" class="list-group-item-action">
+          <h5 class="list-group-item-heading"><%= city.name %></h5>
+          <p><%= city.state.name %>, <%= city.state.country.full_name %></p>
+
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+<br/>

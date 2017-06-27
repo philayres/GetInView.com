@@ -1,0 +1,41 @@
+<h2>List your hotel, B&amp;B, guesthouse or hostel for free</h2>
+
+<div class="row">
+
+<div class="col-md-6">
+<h3>Log in</h3>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="form-group">
+    <%= f.submit "Log in", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+<br/>
+</div>
+
+<div class="col-md-6">
+<h3>No account? Sign up now</h3>
+<p>List your hotel, B&amp;B, guesthouse or hostel for free</p>
+<p><%= link_to "Sign Up for Free", new_user_registration_path %></p>
+</div>
+
+</div>

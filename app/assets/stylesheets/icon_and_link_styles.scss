@@ -1,0 +1,74 @@
+$icon-color: gray;
+$close-icon-color: #cc0000;
+$icon-char-color: white;
+
+
+
+.icon-symbol {
+  
+  display: inline-block;
+  background-color: $icon-color;
+  border-radius: 0.6em;
+  
+  font-size: 80%;
+  top: -0.2em;
+  position: relative;
+  color: $icon-char-color;
+  &:hover, &:link, &:active, &:visited {
+    color: $icon-char-color;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+  min-width: 1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+
+.cancel-link {
+  display: inline-block;
+  margin-left: 1.4em;
+}
+
+.alert .close {
+  display: inline-block;
+  background-color: $close-icon-color;
+  border-radius: 0.6em;
+
+  top: -0.2em;
+  position: relative;
+  color: $icon-char-color;
+  opacity: 1;
+  &:hover, &:link, &:active, &:visited {
+    color: $icon-char-color;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+  min-width: 1em;
+  padding: 0 0.25em;
+  
+}
+
+.social-icon:before {
+    content: " ";
+    padding: 0 0.25em;
+    border: 1px solid white;
+    color: white;
+    border-radius: 0.2em;
+    font-weight: bold;
+    margin-right: 0.6em;
+    width: 1.6em;
+    display: inline-block;
+    text-align: center;
+    font-size: 125%;
+    background-color: rgba(40,40,40,0.7);
+  }
+
+.facebook-icon:before {
+  content: "f";
+}
+
+.twitter-icon:before {
+  content: "t";
+}

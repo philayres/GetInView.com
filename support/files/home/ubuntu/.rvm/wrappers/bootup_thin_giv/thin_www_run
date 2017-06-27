@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+source "/home/ubuntu/.getinview_www_env"
+if
+  [[ -s "/home/ubuntu/.rvm/gems/ruby-2.2.4/environment" ]]
+then
+  source "/home/ubuntu/.rvm/gems/ruby-2.2.4/environment"
+  exec \
+  env SECRET_KEY_BASE=$SECRET_KEY_BASE \
+  DEVISE_SECRET=$DEVISE_SECRET \
+  GETINVIEW_DATABASE_PASSWORD=$GETINVIEW_DATABASE_PASSWORD \
+  SES_SMTP_IP=$SES_SMTP_IP \
+  SES_SMTP_USERNAME=$SES_SMTP_USERNAME \
+  SES_SMTP_PASSWORD=$SES_SMTP_PASSWORD \
+   thin "$@"
+else
+  echo "ERROR: Missing RVM environment file: '/home/ubuntu/.rvm/gems/ruby-2.2.4/environment'" >&2
+  exit 1
+fi

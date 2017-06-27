@@ -1,0 +1,27 @@
+<div class="row review-list">
+
+<% @google_place.reviews.each do |review| %>
+
+  <div class="col-12 col-md-6">
+    <div class="card card-block review">
+      <p class="rating">
+      <span class="badge badge-primary">
+      <span class="rating-number"><%= review.rating %></span><span class="rating-of5"> / 5</span>
+      </span>
+      </p>
+      <p class="review-info">
+      <span class="author-name"><%= review.author_name %></span>
+      
+      <span class="review-date"><%= review.time.strftime("%B %Y")%></span></p>
+      <div class="review-text original">
+        <div class="read-more">read more</div>
+        <div class="review-text-inner">
+        <%= simple_format review.text %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<% end %>
+</div>

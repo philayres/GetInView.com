@@ -1,0 +1,8 @@
+<%= form_for([@create_in_property, @property]) do |f| %>
+
+<%= render partial: 'layouts/form_header' %>
+  <div class="form-group ">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to 'cancel', property_properties_path(property_id: @property.id), class: "cancel-link" %>
+  </div>
+<% end %>

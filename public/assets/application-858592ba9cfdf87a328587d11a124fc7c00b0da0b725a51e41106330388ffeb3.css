@@ -1,0 +1,255 @@
+/* line 1, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+h1, h2, h3, h4 {
+  text-shadow: white 1px 1px 1px;
+}
+
+/* line 8, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+nav.navbar-top, .navbar-bottom {
+  background-color: black;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 0;
+}
+/* line 13, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+nav.navbar-top h1, nav.navbar-top h2, nav.navbar-top h3, nav.navbar-top h4, nav.navbar-top p, nav.navbar-top div, nav.navbar-top a, .navbar-bottom h1, .navbar-bottom h2, .navbar-bottom h3, .navbar-bottom h4, .navbar-bottom p, .navbar-bottom div, .navbar-bottom a {
+  color: white;
+  text-shadow: none;
+  background: none;
+}
+
+/* line 25, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+.panel h1, .panel h2, .panel h3, .panel h4, nav h1, nav h2, nav h3, nav h4 {
+  text-shadow: none;
+  background: none;
+}
+
+/* line 32, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+#share_getinview {
+  height: 30px;
+  padding-left: 14px;
+  overflow: hidden;
+  border: 0;
+  margin-top: -6px;
+}
+
+/* line 40, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+.navbar-bottom {
+  padding-bottom: 10px;
+}
+/* line 42, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+.navbar-bottom .nav-link {
+  text-decoration: underline;
+}
+
+/* line 48, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/app_styles.scss */
+.ad_slot {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* line 1, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/body_backgrounds.scss */
+body {
+  background-color: #005500;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 500px;
+}
+
+/* line 11, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/body_backgrounds.scss */
+.container.main-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  padding-top: 16px;
+}
+
+/* line 19, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/body_backgrounds.scss */
+body {
+  background-image: url("https://s3.amazonaws.com/getinviewwww/backgrounds/giv-livingston-360-p-q20.jpg");
+}
+
+@media (min-width: 500px) and (orientation: landscape) {
+  /* line 24, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/body_backgrounds.scss */
+  body {
+    background-image: url("https://s3.amazonaws.com/getinviewwww/backgrounds/giv-livingston-720-l-q20.jpg");
+  }
+}
+/* line 7, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/icon_and_link_styles.scss */
+.icon-symbol {
+  display: inline-block;
+  background-color: gray;
+  border-radius: 0.6em;
+  font-size: 80%;
+  top: -0.2em;
+  position: relative;
+  color: white;
+  min-width: 1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+/* line 17, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/icon_and_link_styles.scss */
+.icon-symbol:hover, .icon-symbol:link, .icon-symbol:active, .icon-symbol:visited {
+  color: white;
+}
+/* line 20, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/icon_and_link_styles.scss */
+.icon-symbol:hover {
+  opacity: 0.6;
+}
+
+/* line 28, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/icon_and_link_styles.scss */
+.cancel-link {
+  display: inline-block;
+  margin-left: 1.4em;
+}
+/* line 3, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-index-list div.staticmap {
+  width: auto;
+  overflow: hidden;
+  text-align: center;
+  height: 120px;
+  display: block;
+  position: relative;
+}
+/* line 12, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-index-list div.staticmap .instruction {
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  z-index: 100;
+  background: none;
+  text-align: right;
+  display: inline-block;
+  background-color: white;
+  color: #666;
+  padding: 0 4px 0 4px;
+  width: auto;
+}
+/* line 33, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-index-list .result-linked-data {
+  background-color: #ececec;
+  padding: 4px;
+}
+/* line 38, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-index-list .result-linked-data h5 {
+  color: #353;
+}
+
+/* line 47, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-show div.staticmap {
+  width: auto;
+  overflow: hidden;
+  text-align: center;
+  height: 200px;
+  display: block;
+  position: relative;
+}
+/* line 56, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-show div.staticmap .instruction {
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  z-index: 100;
+  background: none;
+  text-align: right;
+  display: inline-block;
+  background-color: white;
+  color: #666;
+  padding: 0 4px 0 4px;
+  width: auto;
+}
+
+/* line 74, /home/ubuntu/getinview_dev_www/app/assets/stylesheets/properties.scss */
+.properties-show .property-description {
+  background-color: #eeeeee;
+  padding: 0.6em;
+}
+/*body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+*/
+/* line 41, /home/ubuntu/getinview/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 45, /home/ubuntu/getinview/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 51, /home/ubuntu/getinview/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 59, /home/ubuntu/getinview/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 70, /home/ubuntu/getinview/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

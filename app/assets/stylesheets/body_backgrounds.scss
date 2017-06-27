@@ -1,0 +1,32 @@
+body {
+  background-color: #005500;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height:500px;
+  
+}
+
+.container.main-container {
+  
+  background-color: rgba(255,255,255,0.7);
+  margin-bottom: 20px;
+  padding-top: 16px;
+}
+
+
+body {
+  background-image: url("https://s3.amazonaws.com/getinviewwww/backgrounds/giv-livingston-360-p-q20.jpg");
+}
+
+@media (min-width: 500px) and (orientation: landscape) { 
+  body {
+    background-image: url("https://s3.amazonaws.com/getinviewwww/backgrounds/giv-livingston-720-l-q20.jpg");
+  }
+  
+}
+
+@media (min-width: 700px) and (orientation: landscape) {
+
+}

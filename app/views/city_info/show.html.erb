@@ -1,0 +1,25 @@
+<div class="city-info">
+<h1>Where to stay in <%= @city_info.city_name %>, <%= @city_info.state_name %>, <%= @city_info.country.full_name %></h1>
+<h2>Finding hotels, bed &amp; breakfasts, hostels, campgrounds and other accommodation options</h2>
+
+<% if @city_info.exists? &&
+@city_info.render_location
+%>
+<br/>
+<%= render partial: @city_info.render_location %>
+<% else %>
+  <p>We don't have details yet for this location.</p>
+  <p><br><%= link_to "Find accommodation in #{@city_info.city_name}", @city_info.city %></p>
+<% end %>
+
+
+<%= render partial: "properties/search_form" %>
+<% if @city && @city.state %>
+<div class="card card-block">
+
+<p>Browse other cities in <%= link_to @city.state.name, @city.state %></p>
+<p>Browse other regions in <%= link_to @city.state.country.full_name, @city.state.country %></p>
+</div>
+<% end %>
+<br/>
+</div>

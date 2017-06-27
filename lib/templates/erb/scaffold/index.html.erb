@@ -1,0 +1,31 @@
+
+
+<h1><%%= types_title %></h1>
+<h2><%%= @<%= singular_table_name %>.name %>
+<%%= link_to "?", property_path(@property.id), class: 'icon-symbol', title: "view or edit property details" %>
+</h2>
+
+<ul class="list-group">
+      
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+    
+    
+    <li class="list-group-item <% if attributes.include?(:hidden) -%><%%= <%= singular_table_name %>.hidden ? "disabled" : "" %><% end -%>">
+    
+    <a href="<%%= edit_<%= singular_table_name %>_path(property_room_type) %>" class="list-group-item-action">
+          <h5 class="list-group-item-heading"><%%= <%= singular_table_name %>.name %></h5>
+          
+
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <p class="list-group-item-text"><%%= <%= singular_table_name %>.<%= attribute.name %> %></p>
+<% end -%>
+
+        </a>
+      </li>
+    <%% end %>
+  </ul>
+
+<br>
+
+<%%= link_to 'add a <%= singular_table_name.titleize.downcase %>', new_property_<%= singular_table_name %>_path(property_id: @property.id), class: "btn btn-primary" %>
+

@@ -1,0 +1,93 @@
+<%
+
+ org="Hotel"
+ org = "Motel" if @property.property_type.to_s == "motel"
+ org = "Hostel" if @property.property_type.to_s == "hostel"
+org = "BedAndBreakfast" if @property.property_type.to_s == "bnb"
+org="Organization"
+%>
+
+<div class="properties-show">
+<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:<%=org%>"> 
+   <h1 property="v:name"><%= @property.name %></h1>
+<div class="card card-block"> 
+
+
+
+<h3>Details
+<span class="property-type badge badge-default float-right"><%= property_type_display @property.property_type %></span>
+</h3>
+   <% if @property.property_address %>
+   <div rel="v:address" class="address-line">
+      <div typeof="v:Address">
+         <span property="v:street-address"><%= @property.property_address.address1 %><% unless @property.property_address.address2.blank? %>, <%= @property.property_address.address2 %><% end %></span>, 
+         <span property="v:locality"><%= @property.property_address.city %></span>,
+         <span property="v:region"><%= @property.property_address.state %></span>,
+         <span property="v:country-name"><%= country_full_name(@property.property_address.country) %></span>
+      </div>
+   </div>
+
+   
+   <% unless @property.property_address.latitude.blank? %>
+   <div rel="v:geo" class="geoloc">
+      <span typeof="v:Geo">
+         <span property="v:latitude" content="<%= @property.property_address.latitude %>"></span>
+         <span property="v:longitude" content="<%= @property.property_address.longitude %>"></span>
+      </span>
+   </div>
+   <% else %>
+   <div>(exact location not provided - map pin is approximate)</div>
+   <% end %>
+   
+
+          <% if @property.property_address.valid_gps? %>
+            <div class="staticmap">
+            
+              <%= map_img_tag @property.property_address.latitude, @property.property_address.longitude, 600, 200, zoom: 14, instructions: "open map", src: @image %>
+            </div>
+          <% else %>
+          <div class="staticmap">
+          
+            <%= map_address_img_tag @property.property_address.as_single_line,
+            600, 200, zoom: 14, instructions: "open map", src: @image %>
+            </div>
+          <% end %>
+    
+   <% else %>
+     <p>no address found</p>
+   <% end %>
+   <br />
+   <div class="property-description">
+   <% if @property.property_description && !@property.property_description.description.blank?%>
+   <%= simple_format @property.property_description.description %>
+   <% else %>
+   (no description provided)
+   <% end %>
+   </div>
+   <br/>   
+   <% if @property.property_contact_details %>
+   <% unless @property.property_contact_details.primary_phone.blank? %>
+   <p><a class="tel-line" href="<%= @property.property_contact_details.primary_phone_url %>"><span>+<%= @property.property_contact_details.primary_phone_country %> <%= @property.property_contact_details.primary_phone %></span></a></p>   <% end %>
+   <% unless @property.property_contact_details.secondary_phone.blank? %>
+     <p><a class="tel-line" href="<%= @property.property_contact_details.secondary_phone_url %>"><span>+<%= @property.property_contact_details.secondary_phone_country %> <%= @property.property_contact_details.secondary_phone %></span></a></p>
+   <% end %>
+   <% unless @property.property_contact_details.website_url.blank? %>
+   <p><a class="web-line" href="<%= @property.property_contact_details.website_url %>" property="v:url"><%= @property.property_contact_details.website_url %></a></p>
+   <% end %>
+   <% unless @property.property_contact_details.email.blank? %>
+   <p><a class="email-line" href="mailto:<%= @property.property_contact_details.email %>?subject=Inquiry via GetInView.com&body=Dear manager, this is an inquiry for <%=@property.name %>."><%= @property.property_contact_details.email %></a></p>
+   <% end %>
+      <% else %>
+     <p>no contact details found</p>
+   <% end %>
+</div>
+</div>
+<%= render partial: "google_place_block" %>
+<% unless @property.claimed? %>
+<div class="card card-block not-claimed"> 
+<h3>Note</h3>
+<p>This property page has not been claimed by the owner. Please be sure to verify any details when making a reservation or inquiry.</p>
+<p>Are you the owner or manager? <a href="mailto:admin@getinview.com?subject=Claim property <%= @property.id %>&body=I am the manager or owner of <%= @property.name %>. I wish to claim this listing.">Claim property listing</a>
+<% end %>
+</div>
+</div>

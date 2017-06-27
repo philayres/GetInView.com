@@ -1,0 +1,28 @@
+<%%= form_for([@create_in_property, @<%= singular_table_name %>]) do |f| %>
+
+<%%= render partial: 'layouts/form_header' %>
+<% attributes.each do |attribute| -%>
+  <div class="form-group">
+<% if attribute.password_digest? -%>
+    <%%= f.label :password %>
+    <%%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%%= f.label :password_confirmation %>
+    <%%= f.password_field :password_confirmation, class: "form-control" %>
+<% elsif attribute.field_type == :check_box -%>
+  <div class="form-check">
+    <%%= f.check_box :<%= attribute.column_name %>, class: "form-check-input" %>
+    <%%= f.label :<%= attribute.column_name %>, class: "form-check-label" %>
+  </div>
+<% else -%>
+    <%%= f.label :<%= attribute.column_name %> %>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, class: "form-control" %>
+<% end -%>
+  </div>
+<% end -%>
+  <div class="form-group ">
+    <%%= f.submit class: "btn btn-primary" %>
+    <%%= link_to 'cancel', property_<%=plural_table_name%>_path(property_id: @property.id), class: "cancel-link" %>
+  </div>
+<%% end %>

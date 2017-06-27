@@ -1,0 +1,14 @@
+<div class="card card-block">
+<%= form_for(@property, action: :index, method: :get, html: {class: "property_search_form"}) do |f| %>
+  <div class="form-group ">
+    <%= f.label :name, "enter hotel name, country, city, state, or" %> <a class="current-location" href="#">current&nbsp;location</a>
+    <div>&nbsp;</div>
+    <%= f.text_field :name, class: "form-control property-search-field", value: @property.name || @current_location_text %>
+  </div>
+  <%= hidden_field_tag :location_latitude %>
+  <%= hidden_field_tag :location_longitude %>
+  <div class="form-group ">
+    <%= f.submit @search_action_text, class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>

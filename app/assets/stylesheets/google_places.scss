@@ -1,0 +1,59 @@
+.ratings-block, .review-list {
+  .rating {
+    font-size: 147%;
+
+    text-align: center;
+    
+    .rating-number {
+      font-weight: bold;
+    }
+    .rating-of5 {
+      color: #ccf;
+      font-size: 75%;
+    }
+
+  }
+}
+.ratings-block {
+  .rating {
+    font-size: 167%;
+  }
+}
+
+
+.review {
+
+    .review-info {
+    
+      text-align: left;
+    }
+    .author-name {
+      font-style: italic;
+    }
+    .review-date {
+      display: inline-block;
+      margin-left: 2em;
+      font-weight: bold;
+      font-size: 90%;
+    }
+    .review-text.original {
+        max-height:8em;
+        overflow: hidden;
+        
+    }
+    
+    .review-text.original .read-more {
+          display: none;
+          text-align:center;
+          background: #eee;
+    }
+    .review-text.expanded .read-more {
+      display: none;
+    }
+    
+    .review-text.shrunk .read-more {
+      display: block;
+      position: relative;
+      top: 6.6em;
+    }
+}

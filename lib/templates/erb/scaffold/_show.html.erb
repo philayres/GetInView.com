@@ -1,0 +1,13 @@
+<%%
+  show_labels = false unless defined? :show_labels
+%>
+
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+<p>
+<%% if show_labels %>
+  <strong><%= attribute.human_name %>:</strong>
+<%% end %>
+  <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+</p>
+
+<% end -%>

@@ -1,0 +1,61 @@
+h1, h2, h3, h4 {
+
+  text-shadow: white 1px 1px 1px;
+//  background: rgba(255,255,255,0.25);
+
+  .badge {
+    text-shadow: none;
+  }
+
+}
+
+nav.navbar-top, .navbar-bottom {
+  background-color: black;
+  background: rgba(0,0,0,0.6);
+  border-radius:0;
+  
+  h1, h2, h3, h4, p, div, a {
+  
+    color: white;
+    text-shadow: none;
+    background: none;
+  }
+}
+
+
+.panel, nav {
+
+
+  h1, h2, h3, h4 {
+    text-shadow: none;
+    background: none;
+  }
+
+}
+
+#share_getinview {
+height: 30px;
+padding-left:14px;
+overflow: hidden;
+border: 0;
+margin-top: -6px;
+
+}
+.navbar-bottom {
+  padding-bottom: 10px;
+  .nav-link {
+    text-decoration: underline;
+  }
+}
+
+
+.ad_slot {
+    background-color: rgba(255,255,255,0.7);
+}
+
+
+.properties-show  .card{
+  margin-bottom: 3px;
+}
+
+

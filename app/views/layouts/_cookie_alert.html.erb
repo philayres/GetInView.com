@@ -1,0 +1,8 @@
+<% unless cookies[:giv_cookie_alert_confirmed] == "done" %>
+<div class="alert alert-warning alert-dismissible" id="giv_cookie_alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+<p>This site uses cookies to enhance your experience, and for the ads that support the service. See our <a href="/privacy_policy" target="givdoc">privacy policy</a> for more details. 
+</div>
+<% end %>

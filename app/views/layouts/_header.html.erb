@@ -1,0 +1,22 @@
+<nav class="navbar navbar-top">
+<div class="row">
+<div class="col-xs-auto">
+<%= link_to "GetInView", "/", class: "navbar-brand h1" %>
+</div>
+<div class="nav navbar-nav col">
+
+<a href="/" class="nav-item nav-link">home</a>
+<% if user_signed_in? %>
+
+<%= link_to 'profile', edit_user_registration_path, class: 'nav-item nav-link'  %>
+
+<%= link_to 'log out', destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
+<% end %>
+
+
+</div>
+<a href="https://twitter.com/GetInViewNow" target="social" class="social-icon twitter-icon"></a>
+<a href="https://facebook.com/GetInView" target="social" class="social-icon facebook-icon"></a>
+
+</div>
+</nav>
