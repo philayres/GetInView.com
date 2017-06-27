@@ -26,7 +26,28 @@ supplied schema. Migrations are not provided, since the database is managed by
 the GetInView console.
 
 A limited set of rspec tests are provided to ensure baseline functionality of 
-the website.
+the website. Just run rspec to ensure setup is correct and the application is
+operational.
+
+Security
+---
+
+The population of data relies on the GetInView admin console. This also owns the
+schema and associated migrations. In a production environment, the DB user for 
+the public website is granted only read access to the tables, to provide 
+additional security. A typical architecture might also consider just a one-way
+replication of the appropriate data from the central admin database to the 
+DB behind the public facing website.
+
+In the future, certain public user authenticated functions will likely require 
+DB writes. These will be opened up on a table per table basis. 
+
+Prerequisites
+---
+
+**Memcache** - provides user session caching and API call result caching
+**MySql** was the selected database, avoiding the Postgres case-sensitivity
+**Google Static Maps** provides maps, and an API key is required
 
 Licence
 ---
