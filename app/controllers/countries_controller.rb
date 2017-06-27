@@ -3,7 +3,7 @@ class CountriesController < PublicController
 
   
   def index
-    @countries = Country.all
+    @countries = Country.all.sort{|c| c.full_name}
     fresh_when @countries
   end
 
